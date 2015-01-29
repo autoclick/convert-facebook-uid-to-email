@@ -5,6 +5,7 @@ Fast converter UID to email and phone number
 * Multi Threads(up to 500 threads)
 * Work with FB UID Scraper: http://goo.gl/0IgkX0
 How to use this plugin in 2 easy steps!
+![alt text](https://raw.githubusercontent.com/autoclick/convert-facebook-uid-to-email/master/screenshot1.png "Convert Facebook UID to Email")
 
 1) Go to Graph search page https://www.facebook.com/search/single/users
    Typing your search (ex: Friends in San Francisco).
