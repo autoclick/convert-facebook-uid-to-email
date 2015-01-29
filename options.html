@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #dragandrophandler {
+            border: 2px dotted #0B85A1;
+            width: 400px;
+            color: #92AAB0;
+            text-align: left;
+            vertical-align: middle;
+            padding: 50px;
+            margin-bottom: 10px;
+            font-size: 200%;
+        }
+
+        .alignLeft {
+            float: left;
+        }
+
+        .btn {
+            background: #3498db;
+            display: inline-block;
+            border-radius: 28px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+            .btn:hover {
+                background: #3cb0fd;
+                text-decoration: none;
+            }
+
+        .btn-cancel {
+            background: #AFB5B8;
+        }
+
+            .btn-cancel:hover {
+                background: #7D8284;
+                ;
+            }
+
+        .alignRight {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="alignLeft">
+
+        <div id="dragandrophandler">Drag & Drop File Here</div>
+        Or <input type='file' id="fileinputhandler"><br>
+        Or Paste list UID:<br>
+        <textarea id="fileResult" style="width:500px;height:300px"></textarea>
+    </div>
+    <div class="alignLeft" style="margin-left: 20px;">
+        <span style="font-size: 14px;">Number threads</span>
+        <select id="threads" style="height: 30px;">
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+        </select>
+        <br />
+        <a class="btn" href="#" id="btnStart">Start</a>
+        <br />
+        <a class="btn btn-cancel" style="" href="#" id="btnClear">Clear</a>
+        <br />
+        <h3>Part of the list be format(one uid per line):</h3>
+        <ul id="formatList"></ul>
+    </div>
+    <script src="jquery.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
