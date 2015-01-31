@@ -119,13 +119,15 @@ function runScrape(_id) {
                     if (lst) {
                         defaultEmail = lst[lst.length - 1];
                     } else {
-                        lst = defaultEmail.match(/((\/|\/\/)[a-zA-Z0-9.]+[\s,]?)/gi);
+                        lst = defaultEmail.match(/((\/|\/\/)[a-z0-9.]+[\s,]?)/gi);
                         if (lst) {
                             for (var i = 0; i < lst.length; i++) {
                                 if (lst[i].indexOf('//') < 0) {
-                                    defaultEmail = lst[i].match(/[a-zA-Z0-9.]+/gi)[0] + '@facebook.com';
+                                    defaultEmail = lst[i].match(/[a-z0-9.]+/gi)[0] + '@facebook.com';
                                 }
                             }
+                        } else {
+                            defaultEmail = undefined;
                         }
                     }
                 }
@@ -134,20 +136,22 @@ function runScrape(_id) {
         if (!defaultEmail) {
             var lst = _doc.find('#contact-info').text();
             if (lst) {
-                lst = lst.match(/((\/|\/\/)[a-zA-Z0-9.]+[\s,]?)/gi);
+                lst = lst.match(/((\/|\/\/)[a-z0-9.]+[\s,]?)/gi);
                 if (lst) {
                     for (var i = 0; i < lst.length; i++) {
                         if (lst[i].indexOf('//') < 0) {
-                            defaultEmail = lst[i].match(/[a-zA-Z0-9.]+/gi)[0] + '@facebook.com';
+                            defaultEmail = lst[i].match(/[a-z0-9.]+/gi)[0] + '@facebook.com';
 
                         }
                     }
 
+                } else {
+                    defaultEmail = undefined;
                 }
             }
         }
         if (defaultEmail || defaultPhone) {
-            defaultEmail = defaultEmail.replace('Ask@', '@');
+            //defaultEmail = defaultEmail.replace('Ask@', '@');
             lstResult[lstResult.length] = { 'email': defaultEmail, 'phone': defaultPhone };
         }
         nextScrape();
